@@ -1,35 +1,48 @@
 import React from "react";
 import Grid from '@mui/material/Grid2';
-import { Paper } from '@mui/material';
-
-export default function ContenidoComida () {
+import { Paper, Typography } from '@mui/material';
 
 
+export default function ContenidoComida ({data}) {
+
+   console.log('Datos desde padre:', data)
 
    return(
 
       <div>
          Soy un componente contenido
+         {   
+            !data || data.length === 0 ? (
+            <Typography variant="h4" color="initial"> No hay datos que mostrar</Typography>) 
+            : (
+               <Grid container padding={4} spacing={3}>
 
-         <Grid container spacing={2} paddingTop={4}>
-            
-            <Grid size = {{ xs:6, md:4 }} paddingLeft={2}>
+                  {/*
+                  // ! Agregar los ingredientes, las intrucciones,un boton para ver el video en YouTube y acomodarlo bien
+                  */}
 
-               <Paper style={{padding: 13, backgroundColor: 'seagreen'}}>
-                  Hola mundo
-               </Paper>
+                  {
+                     data.map((resetaData, index) => (
 
-            </Grid>
+                        <Grid key={index} size={{ xs:6, md: 4}} >
+                           <Paper>
+                              <img src={resetaData.strMealThumb} alt="" width={280}/>
+                              
+                              <p> Comida: {resetaData.strMeal} </p>
 
-            <Grid size = {{ xs:6, md:4 }} paddingRight={2}>
+                              <p> id: {resetaData.idMeal} </p>
 
-               <Paper style={{padding: 13, backgroundColor: 'silver'}}>
-                  Hola mundo
-               </Paper>
+                              <p></p>
+                              
+                           </Paper>
+                        </Grid>
 
-            </Grid>
+                     ))
+                  }
 
-         </Grid>
+               </Grid>
+            )
+         }
       </div>
 
    )

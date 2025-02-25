@@ -1,4 +1,4 @@
-import React from "react";
+import React, { use, useEffect } from "react";
 import { Card, TextField } from '@mui/material';
 import Grid from '@mui/material/Grid2';
 import Button from '@mui/material/Button';
@@ -12,22 +12,64 @@ export default function HomePage() {
       { meals: [] }
    )
 
-   const obtenerComidaPorNombre = ( ) => {
+   const obtenerComidaPorNombre = async( ) => {
 
-      if (textobuscar == '') {
+      const buscar = textobuscar.trim()
+
+      if (textobuscar === '') {
          alert('Campo vacio, pon algo minimo')
       } else {
+
+         // alert('Cargando datos...')
+         
          const requestOptions = {
             method: "GET",
             redirect: "follow"
           };
           
-          fetch("https://www.themealdb.com/api/json/v1/1/search.php?s=pasta", requestOptions)
-            .then((response) => response.json())
-            .then((result) => console.log(result))
-            .catch((error) => console.error(error));
+          try {
+
+            const response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${buscar}` , requestOptions);
+
+            const result = await response.json();
+
+            setDatos(result);
+
+            console.log(result);
+
+         } catch (error) {
+
+            console.error(error);
+
+         };
       }
    }
+
+   //! Usar el useEffect para que cargue algo de info por defecto
+/*    React.useEffect(() => {
+      
+      const obtenerData = async() => {
+         try {
+
+            const response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=beef` , requestOptions);
+
+            const result = await response.json();
+
+            setDatos(result);
+
+            console.log(result);
+
+         } catch (error) {
+
+            console.error(error);
+
+         };
+      }
+
+      return () => {
+         obtenerData()
+      }, [obtenerData]
+   }) */
 
    console.log('Contenido input', textobuscar)
 
@@ -69,7 +111,9 @@ export default function HomePage() {
 
          </Grid>
 
-         <ContenidoComida />
+         <ContenidoComida 
+         data={datos.meals}
+         />
 
       </div>
    )
