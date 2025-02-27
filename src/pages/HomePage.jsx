@@ -70,7 +70,7 @@ export default function HomePage() {
 
    return(
       <div>
-         <h1 style={{textAlign: 'center', color: 'blue'}}>Browser</h1>
+         <h1 style={{textAlign: 'center', color: 'blue'}}>Busca tus platillos favoritos</h1>
 
          <Grid container padding={4} justifyContent="center" alignItems="center">
 
