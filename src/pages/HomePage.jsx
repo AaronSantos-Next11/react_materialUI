@@ -45,31 +45,26 @@ export default function HomePage() {
       }
    }
 
-   //! Usar el useEffect para que cargue algo de info por defecto
-/*    React.useEffect(() => {
+   //* HECHO Usar el useEffect para que cargue algo de info por defecto
+   React.useEffect(() => {
       
       const obtenerData = async() => {
          try {
 
-            const response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=beef` , requestOptions);
+            const response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=beef`);
 
             const result = await response.json();
 
             setDatos(result);
 
-            console.log(result);
-
          } catch (error) {
 
             console.error(error);
 
-         };
-      }
-
-      return () => {
-         obtenerData()
-      }, [obtenerData]
-   }) */
+         }; 
+      }; 
+      obtenerData();
+   }, [])
 
    console.log('Contenido input', textobuscar)
 
