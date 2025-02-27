@@ -7,8 +7,6 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 
-
-
 export default function ContenidoComida ({data}) {
 
    console.log('Datos desde padre:', data)
@@ -16,10 +14,10 @@ export default function ContenidoComida ({data}) {
    return(
 
       <div>
-         Soy un componente contenido
+         {/* Soy un componente contenido */}
          {   
             !data || data.length === 0 ? (
-            <Typography variant="h4" color="initial"> No hay datos que mostrar</Typography>) 
+            <Typography variant="h4" color="initial" style={{textAlign: 'center'}}> Lo sentimos, pero no hay datos que mostrar</Typography>) 
             : (
                <Grid container padding={4} spacing={3}>
 
@@ -37,6 +35,8 @@ export default function ContenidoComida ({data}) {
                               <p> Comida: {resetaData.strMeal} </p>
 
                               <p> id: {resetaData.idMeal} </p>
+
+                              <p> Region: {resetaData.strArea}</p>
                               
                               <Accordion>
 
