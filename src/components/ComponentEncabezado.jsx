@@ -114,6 +114,7 @@ function ComponentEncabezado() {
             LOGO
           </Typography>
 
+            {/* Aqui estan los botones del navbar para cada pagina */}
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
 
               <Button
@@ -150,6 +151,15 @@ function ComponentEncabezado() {
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 Contactanos
+              </Button>
+
+              <Button
+                component={Link}
+                to='/dash'
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                Dashboard
               </Button>
             
           </Box>
