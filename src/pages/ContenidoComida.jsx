@@ -1,17 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import Grid from '@mui/material/Grid2';
 import { Paper, Typography, Button } from '@mui/material';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import { Link } from 'react-router-dom';
 
 export default function ContenidoComida ({data}) {
 
    console.log('Datos desde padre:', data)
 
-   return(
+   return(    
 
       <div>
          {/* Soy un componente contenido */}
@@ -30,13 +30,14 @@ export default function ContenidoComida ({data}) {
 
                         <Grid key={index} size={{ xs:6, md: 4}} >
                            <Paper style={{padding: 10, }}>
+                              
                               <img src={resetaData.strMealThumb} alt="" width={280}/>
                               
                               <p> Comida: {resetaData.strMeal} </p>
 
                               <p> id: {resetaData.idMeal} </p>
 
-                              <p> Region: {resetaData.strArea}</p>
+                              <p> Region: {resetaData.strArea} </p>
                               
                               <Accordion>
 
@@ -92,7 +93,17 @@ export default function ContenidoComida ({data}) {
                                  style={{ marginTop:10, backgroundColor: 'green'}}
                                  href={resetaData.strYoutube} >
                                  Watch Video
-                              </Button>
+                              </Button> <br />
+
+                              <Button
+                                 variant="contained"
+                                 target="_blank"
+                                 style={{ marginTop:10, backgroundColor: 'green'}}
+                                 component={Link}
+                                 to={`/detalles-comida/${resetaData.idMeal}`}
+                              >
+                                 Ver mas detalles
+                              </Button> 
                                  
                            </Paper>
                         </Grid>

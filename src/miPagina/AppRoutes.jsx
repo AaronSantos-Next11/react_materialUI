@@ -9,6 +9,9 @@ import PageDash from './dash/PageDash';
 import PageTrading from './dash/PageTrading';
 import DetallesDash from './dash/DetallesDash';
 
+import DetallesComida from '../pages/DetallesComida';
+
+
 export default function AppRoutes () {
 
    return(
@@ -31,6 +34,8 @@ export default function AppRoutes () {
          </Route>
 
          <Route path="*" element={<NotFound/>} />
+
+         <Route path='/detalles-comida/:idMeal' element={ < DetallesComida/> } />
 
       </Routes>
 
