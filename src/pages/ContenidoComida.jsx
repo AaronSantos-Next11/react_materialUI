@@ -100,7 +100,7 @@ export default function ContenidoComida ({data}) {
                                  target="_blank"
                                  style={{ marginTop:10, backgroundColor: 'green'}}
                                  component={Link}
-                                 to={`/detalles-comida/${resetaData.idMeal}`}
+                                 to={`/recetas/${resetaData.idMeal}`}
                               >
                                  Ver mas detalles
                               </Button> 

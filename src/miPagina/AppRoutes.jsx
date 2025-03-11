@@ -11,7 +11,6 @@ import DetallesDash from './dash/DetallesDash';
 
 import DetallesComida from '../pages/DetallesComida';
 
-
 export default function AppRoutes () {
 
    return(
@@ -19,7 +18,13 @@ export default function AppRoutes () {
       <Routes>
 
          <Route path='/' element={<PageHome/>} />
-         <Route path='/recetas' element={<HomePage/>} />
+         {/* <Route path='/recetas' element={<HomePage/>} /> */}
+
+         <Route path='/recetas' >
+            <Route index element={ <HomePage/> }  ></Route>
+            <Route path=':idMeal' element={ <DetallesComida/> } ></Route>
+         </Route>         
+
          <Route path='/about' element={<PageAbout/>} />
          <Route path='/contact' element={<PageContact/>} />
 
@@ -33,10 +38,9 @@ export default function AppRoutes () {
             
          </Route>
 
+         {/* <Route path='/detalles-comida/:idMeal' element={ < DetallesComida/> } /> */}
+
          <Route path="*" element={<NotFound/>} />
-
-         <Route path='/detalles-comida/:idMeal' element={ < DetallesComida/> } />
-
       </Routes>
 
 

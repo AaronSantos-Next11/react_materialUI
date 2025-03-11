@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import {Paper, Typography, Box} from '@mui/material'
 
-export default function DetallesComida (props) {
+export default function DetallesComida () {
 
    const { idMeal } = useParams(); // Obtenemos el ID desde la URL
    const [detalleComida, setDetalleComida] = useState(null);
