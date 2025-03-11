@@ -97,7 +97,7 @@ export default function ContenidoComida ({data}) {
 
                               <Button
                                  variant="contained"
-                                 target="_blank"
+                                 // target="_blank"
                                  style={{ marginTop:10, backgroundColor: 'green'}}
                                  component={Link}
                                  to={`/recetas/${resetaData.idMeal}`}
